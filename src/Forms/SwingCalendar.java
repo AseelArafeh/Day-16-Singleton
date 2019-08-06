@@ -27,9 +27,10 @@ public class SwingCalendar extends JFrame {
     DefaultTableModel model;
     Calendar cal = new GregorianCalendar();
     JLabel label;
+    private static SwingCalendar INSTANCE = new SwingCalendar();
 
     // Todo: Refactor this constructor so the program will create only one copy of this object
-    SwingCalendar() { // Constructor
+    private SwingCalendar() { // Constructor
 
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setTitle("Swing Calendar");
@@ -73,6 +74,12 @@ public class SwingCalendar extends JFrame {
         this.add(pane, BorderLayout.CENTER);
 
         this.updateMonth();
+
+    }
+
+    public static SwingCalendar getInstance() {
+
+        return INSTANCE;
 
     }
 
